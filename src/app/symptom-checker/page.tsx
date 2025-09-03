@@ -3,6 +3,8 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import NavBar from '../components/landingPage/navBar';
+import Footer from '../components/landingPage/footer';
 
 const SymptomCheckerPage = () => {
   const router = useRouter();
@@ -35,7 +37,8 @@ const SymptomCheckerPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
+      <NavBar />
       {/* Header Section */}
       <div className="bg-white shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
@@ -115,6 +118,7 @@ const SymptomCheckerPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
