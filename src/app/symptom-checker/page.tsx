@@ -109,10 +109,10 @@ const SymptomCheckerPage = () => {
                 </div>
               </div>
               <button 
-                onClick={() => router.push('/emergency')}
+                onClick={() => router.push('/emergency-contacts')}
                 className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full text-sm sm:text-base font-bold transition-colors whitespace-nowrap shadow-sm hover:shadow w-full sm:w-auto"
               >
-                Emergency Help
+                Emergency Contacts
               </button>
             </div>
           </div>
