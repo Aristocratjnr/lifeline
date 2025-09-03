@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const FeatureCards = () => {
   return (
@@ -13,9 +14,11 @@ const FeatureCards = () => {
                 Identify potential medical conditions based on your symptoms.
               </p>
               <div className="mt-auto">
-                <button className="bg-[#FF7A7A] text-white px-4 sm:px-6 py-2 rounded-full text-sm sm:text-md font-bold">
-                  What&apos;s Wrong?
-                </button>
+                <Link href="/symptom-checker" className="block">
+                  <button className="bg-[#FF7A7A] hover:bg-[#e66a6a] text-white px-4 sm:px-6 py-2 rounded-full text-sm sm:text-md font-bold transition-colors">
+                    What&apos;s Wrong?
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="absolute right-0 sm:right-4 top-1/2 transform -translate-y-1/2">
@@ -37,9 +40,11 @@ const FeatureCards = () => {
                 Provide step-by-step instructions for various medical emergencies.
               </p>
               <div className="mt-auto">
-                <button className="bg-[#FF7A7A] text-white px-4 sm:px-6 py-2 rounded-full text-sm sm:text-md font-bold">
-                  Get First Aid Help
-                </button>
+                <Link href="/first-aid" className="block">
+                  <button className="bg-[#FF7A7A] hover:bg-[#e66a6a] text-white px-4 sm:px-6 py-2 rounded-full text-sm sm:text-md font-bold transition-colors">
+                    Get First Aid Help
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="absolute right-0 sm:right-4 top-1/2 transform -translate-y-1/2">
