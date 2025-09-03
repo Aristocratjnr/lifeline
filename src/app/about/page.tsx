@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import NavBar from '../components/landingPage/navBar';
 import Footer from '../components/landingPage/footer';
 
@@ -42,7 +43,7 @@ const AboutPage = () => {
               everywhere. Our mission is to provide reliable, easy-to-understand emergency resources that can help save lives.
             </p>
             <p className="text-gray-700">
-              Whether you're looking for first aid instructions, emergency contact numbers, or life-saving courses, 
+              Whether you&apos;re looking for first aid instructions, emergency contact numbers, or life-saving courses, 
               Lifeline is your trusted companion in times of need.
             </p>
           </div>
@@ -56,7 +57,7 @@ const AboutPage = () => {
                     <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                       <div className="w-full sm:w-40 md:w-48 flex-shrink-0">
                         <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                          <img 
+                          <Image
                             src={member.image} 
                             alt={member.name}
                             className="w-full h-full object-cover"

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import NavBar from '../components/landingPage/navBar';
 import Footer from '../components/landingPage/footer';
 
@@ -168,7 +169,7 @@ const DonatePage = () => {
             <div className="p-6 bg-white bg-opacity-90 border border-gray-800 rounded-[2rem] relative overflow-hidden">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg overflow-hidden">
-                  <img src="/images/telecel.png" alt="Telecel Cash" className="w-full h-full object-cover" />
+                  <Image src="/images/telecel.png" alt="Telecel Cash" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800">Telecel-Cash</h4>
               </div>
@@ -190,7 +191,7 @@ const DonatePage = () => {
             <div className="p-6 bg-white bg-opacity-90 border border-gray-800 rounded-[2rem] relative overflow-hidden">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg overflow-hidden">
-                  <img src="/images/mtn.jpg" alt="MTN Mobile Money" className="w-full h-full object-cover" />
+                  <Image src="/images/mtn.jpg" alt="MTN Mobile Money" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800">MTN Mobile Money</h4>
               </div>
@@ -212,7 +213,7 @@ const DonatePage = () => {
             <div className="p-6 bg-white bg-opacity-90 border border-gray-800 rounded-[2rem] relative overflow-hidden">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg overflow-hidden">
-                  <img src="/images/gcb.png" alt="GCB Bank" className="w-full h-full object-cover" />
+                  <Image src="/images/gcb.png" alt="GCB Bank" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800">Bank Transfer (GCB)</h4>
               </div>
@@ -235,7 +236,7 @@ const DonatePage = () => {
             <div className="p-6 bg-white bg-opacity-90 border border-gray-800 rounded-[2rem] relative overflow-hidden md:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg overflow-hidden">
-                  <img src="/images/usdt.jpg" alt="USDT" className="w-full h-full object-cover" />
+                  <Image src="/images/usdt.jpg" alt="USDT" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800">USDT (TRC20)</h4>
               </div>
