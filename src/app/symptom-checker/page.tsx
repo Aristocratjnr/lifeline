@@ -74,13 +74,13 @@ const SymptomCheckerPage = () => {
               >
                 {feature.buttonText}
               </button>
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 sm:opacity-100 group-hover:opacity-100 transition-opacity">
+              <div className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 opacity-30 sm:opacity-40 group-hover:opacity-100 transition-opacity">
                 <Image
                   src={feature.image}
                   alt={feature.alt}
-                  width={120}
-                  height={120}
-                  className="object-contain w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32"
+                  width={80}
+                  height={80}
+                  className="object-contain w-16 h-16 sm:w-20 sm:h-20"
                   priority={index < 3}
                 />
               </div>
