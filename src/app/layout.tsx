@@ -1,5 +1,5 @@
 import { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins, Open_Sans } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
 import { TranslationProvider } from "@/context/TranslationContext";
@@ -8,6 +8,20 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"],
+  display: "swap",
+  variable: '--font-poppins',
+});
+
+const openSans = Open_Sans({
+  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"],
+  display: "swap",
+  variable: '--font-opensans',
 });
 
 export const metadata: Metadata = {
