@@ -167,10 +167,8 @@ const DonatePage = () => {
             {/* Telecel-Cash */}
             <div className="p-6 bg-white bg-opacity-90 border border-gray-800 rounded-[2rem] relative overflow-hidden">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-gray-100">
-                  <svg className="w-6 h-6 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 .88-.58 1.63-1.39 1.88l-.61.22v2.9h2v1h-3v-3.26c1.5-.8 2.5-2.41 2.5-4.24 0-2.21-1.79-4-4-4z"/>
-                  </svg>
+                <div className="w-10 h-10 rounded-lg overflow-hidden">
+                  <img src="/images/telecel.png" alt="Telecel Cash" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800">Telecel-Cash</h4>
               </div>
@@ -191,10 +189,8 @@ const DonatePage = () => {
             {/* MTN-MOMO */}
             <div className="p-6 bg-white bg-opacity-90 border border-gray-800 rounded-[2rem] relative overflow-hidden">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-gray-100">
-                  <svg className="w-6 h-6 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                  </svg>
+                <div className="w-10 h-10 rounded-lg overflow-hidden">
+                  <img src="/images/mtn.jpg" alt="MTN Mobile Money" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800">MTN Mobile Money</h4>
               </div>
@@ -215,10 +211,8 @@ const DonatePage = () => {
             {/* Bank Transfer */}
             <div className="p-6 bg-white bg-opacity-90 border border-gray-800 rounded-[2rem] relative overflow-hidden">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-gray-100">
-                  <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0 0l-6 2m6-2v10" />
-                  </svg>
+                <div className="w-10 h-10 rounded-lg overflow-hidden">
+                  <img src="/images/gcb.png" alt="GCB Bank" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800">Bank Transfer (GCB)</h4>
               </div>
@@ -232,17 +226,16 @@ const DonatePage = () => {
                     {isCopied === 'bank' ? 'Copied!' : 'Copy'}
                   </button>
                 </div>
-                <p className="text-sm text-gray-500">Lifeline Foundation</p>
+                <p className="text-sm text-gray-500">Daniella Asiedu</p>
+                <p className="text-xs text-gray-800">Lifeline Foundation</p>
               </div>
             </div>
 
             {/* USDT Wallet */}
             <div className="p-6 bg-white bg-opacity-90 border border-gray-800 rounded-[2rem] relative overflow-hidden md:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-gray-100">
-                  <svg className="w-6 h-6 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                  </svg>
+                <div className="w-10 h-10 rounded-lg overflow-hidden">
+                  <img src="/images/usdt.jpg" alt="USDT" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800">USDT (TRC20)</h4>
               </div>
