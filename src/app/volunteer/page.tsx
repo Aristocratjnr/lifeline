@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import NavBar from '../components/landingPage/navBar';
 import Footer from '../components/landingPage/footer';
 
@@ -14,22 +13,89 @@ const VolunteerPage = () => {
     availability: '',
     message: ''
   });
+  
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const validateField = (name: string, value: string): string => {
+    switch (name) {
+      case 'name':
+        if (!value.trim()) return 'Name is required';
+        if (value.trim().length < 2) return 'Name must be at least 2 characters';
+        return '';
+      case 'email':
+        if (!value) return 'Email is required';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Please enter a valid email';
+        return '';
+      case 'phone':
+        if (!value) return 'Phone number is required';
+        if (!/^[0-9\-\+\(\)\s]{10,20}$/.test(value)) return 'Please enter a valid phone number';
+        return '';
+      case 'availability':
+        if (!value) return 'Please select your availability';
+        return '';
+      case 'message':
+        if (!value.trim()) return 'Please tell us why you want to volunteer';
+        if (value.trim().length < 20) return 'Please provide more details (at least 20 characters)';
+        return '';
+      default:
+        return '';
+    }
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    
+    // Clear error for the current field when user types
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+    
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
 
+  const validateForm = (): boolean => {
+    const newErrors: Record<string, string> = {};
+    let isValid = true;
+
+    // Validate all fields
+    Object.keys(formData).forEach(key => {
+      const error = validateField(key, formData[key as keyof typeof formData]);
+      if (error) {
+        newErrors[key] = error;
+        isValid = false;
+      }
+    });
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      // Scroll to first error
+      const firstError = Object.keys(errors)[0];
+      if (firstError) {
+        document.getElementById(firstError)?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+      return;
+    }
+    
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
       // Replace with actual API call
       await new Promise(resolve => setTimeout(resolve, 1500));
@@ -42,8 +108,14 @@ const VolunteerPage = () => {
         availability: '',
         message: ''
       });
+      setErrors({});
     } catch (error) {
       console.error('Error submitting form:', error);
+      // Show error message to user
+      setErrors(prev => ({
+        ...prev,
+        form: 'Failed to submit form. Please try again.'
+      }));
     } finally {
       setIsSubmitting(false);
     }
@@ -158,40 +230,59 @@ const VolunteerPage = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name <span className="text-red-600">*</span></label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      className={`w-full px-4 py-2 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent`}
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? 'name-error' : undefined}
                     />
+                    {errors.name && (
+                      <p id="name-error" className="mt-1 text-sm text-red-600">
+                        {errors.name}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email <span className="text-red-600">*</span></label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      className={`w-full px-4 py-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent`}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'email-error' : undefined}
                     />
+                    {errors.email && (
+                      <p id="email-error" className="mt-1 text-sm text-red-600">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number <span className="text-red-600">*</span></label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      placeholder="e.g., 123-456-7890"
+                      className={`w-full px-4 py-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent`}
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? 'phone-error' : undefined}
                     />
+                    {errors.phone && (
+                      <p id="phone-error" className="mt-1 text-sm text-red-600">
+                        {errors.phone}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label htmlFor="skills" className="block text-sm font-medium text-gray-700 mb-1">Skills/Experience</label>
@@ -206,14 +297,15 @@ const VolunteerPage = () => {
                     />
                   </div>
                   <div className="md:col-span-2">
-                    <label htmlFor="availability" className="block text-sm font-medium text-gray-700 mb-1">Availability</label>
+                    <label htmlFor="availability" className="block text-sm font-medium text-gray-700 mb-1">Availability <span className="text-red-600">*</span></label>
                     <select
                       id="availability"
                       name="availability"
                       value={formData.availability}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      className={`w-full px-4 py-2 border ${errors.availability ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent`}
+                      aria-invalid={!!errors.availability}
+                      aria-describedby={errors.availability ? 'availability-error' : undefined}
                     >
                       <option value="">Select your availability</option>
                       <option value="weekdays">Weekdays</option>
@@ -223,17 +315,30 @@ const VolunteerPage = () => {
                     </select>
                   </div>
                   <div className="md:col-span-2">
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Why do you want to volunteer with us?</label>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Why do you want to volunteer with us? <span className="text-red-600">*</span></label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                      className={`w-full px-4 py-2 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-red-500 focus:border-transparent`}
+                      aria-invalid={!!errors.message}
+                      aria-describedby={errors.message ? 'message-error' : undefined}
                     ></textarea>
+                    {errors.message && (
+                      <p id="message-error" className="mt-1 text-sm text-red-600">
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
                 </div>
+                {errors.form && (
+                  <div className="mb-4 p-3 bg-red-50 text-red-700 rounded-md">
+                    {errors.form}
+                  </div>
+                )}
+                <p className="text-sm text-gray-500 mb-4">Fields marked with * are required</p>
                 <div className="flex items-center">
                   <button
                     type="submit"
