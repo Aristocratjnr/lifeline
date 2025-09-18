@@ -286,12 +286,12 @@ export default function SettingsPage() {
                       className="w-full pl-10 pr-10 py-3 border-2 border-gray-300 rounded-lg focus:border-[#F5A5A5] focus:outline-none text-gray-700 appearance-none bg-white text-sm sm:text-base"
                     >
                      
-                      <option value="18-25">18-25</option>
-                      <option value="26-35">26-35</option>
-                      <option value="36-45">36-45</option>
-                      <option value="46-55">46-55</option>
-                      <option value="56-65">56-65</option>
-                      <option value="65+">65+</option>
+                      <option value="18-25">18</option>
+                      <option value="26-35">20</option>
+                      <option value="36-45">30</option>
+                      <option value="46-55">40</option>
+                      <option value="56-65">50</option>
+                      <option value="65+">65</option>
                     </select>
                     <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400 pointer-events-none" />
                   </div>

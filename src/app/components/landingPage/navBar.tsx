@@ -154,7 +154,7 @@ export default function NavBar() {
         <div className="bg-[#FA9D9D] rounded-lg shadow-lg border border-[#FF9A9A]">
           <div className="py-2">
             <Link href="/" className={`block font-medium py-3 px-4 transition-colors ${pathname === '/' ? 'bg-[#FFB5B5] text-black font-semibold' : 'text-black hover:bg-[#FFB5B5]'}`}>HOME</Link>
-            <Link href="/symptom-checker" className={`block font-medium py-3 px-4 transition-colors ${pathname.startsWith('/symptom-checker') ? 'bg-[#FFB5B5] text-black font-semibold' : 'text-black hover:bg-[#FFB5B5]'}`}>SYMPTOM CHECKER</Link>
+            <Link href="/symptom-checker" className={`block font-medium py-3 px-4 transition-colors ${pathname.startsWith('/symptom-checker') ? 'bg-[#FFB5B5] text-black font-semibold' : 'text-black hover:bg-[#FFB5B5]'}`}>INFO HUB</Link>
             <Link href="/first-aid" className={`block font-medium py-3 px-4 transition-colors ${pathname.startsWith('/first-aid') ? 'bg-[#FFB5B5] text-black font-semibold' : 'text-black hover:bg-[#FFB5B5]'}`}>FIRST AID GUIDES</Link>
             <Link href="/donate" className={`block font-medium py-3 px-4 transition-colors ${pathname.startsWith('/donate') ? 'bg-[#FFB5B5] text-black font-semibold' : 'text-black hover:bg-[#FFB5B5]'}`}>DONATE</Link>
             <Link href="/contact" className={`block font-medium py-3 px-4 transition-colors ${pathname === '/contact' ? 'bg-[#FFB5B5] text-black font-semibold' : 'text-black hover:bg-[#FFB5B5]'}`}>CONTACT US</Link>
