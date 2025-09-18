@@ -81,7 +81,7 @@ export default function NavBar() {
             href="/symptom-checker" 
             className={`text-black font-medium text-sm lg:text-base ${pathname.startsWith('/symptom-checker') ? 'border-b-2 border-black pb-1' : 'hover:text-gray-800 transition-colors group'}`}
           >
-            <span className={!pathname.startsWith('/symptom-checker') ? "group-hover:border-b-2 group-hover:border-black group-hover:pb-1" : ""}>SYMPTOM CHECKER</span>
+            <span className={!pathname.startsWith('/symptom-checker') ? "group-hover:border-b-2 group-hover:border-black group-hover:pb-1" : ""}>INFO HUB</span>
           </Link>
           <Link 
             href="/first-aid" 
